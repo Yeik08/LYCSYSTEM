@@ -1,0 +1,461 @@
+ /* Variables de color */
+:root {
+    --azul-lyc: #4a76a8; 
+    --gris-lyc: #6c8091; 
+    --fondo-oscuro: #0a0e12;
+    --texto-claro: #f4f4f9;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--fondo-oscuro) 0%, #1a222b 100%);
+    color: var(--texto-claro);
+    min-height: 100vh;
+}
+
+/* ---  ENCABEZADO Y MENÚ --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(10, 14, 18, 0.8); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(12px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.logo span.blue { color: var(--azul-lyc); }
+.logo span.grey { color: var(--gris-lyc); }
+
+
+.menu-principal {
+    display: flex;
+    gap: 30px;
+}
+
+.menu-principal a {
+    color: #b0c4de;
+    text-decoration: none;
+    font-size: 0.9em;
+    text-transform: uppercase; /* Letras mayúsculas*/
+    letter-spacing: 1px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu-principal a:hover {
+    color: #ffffff; /* Brilla al pasar el ratón */
+}
+
+/* Botón de Cotizar resaltado */
+.btn-cotiza {
+    background: transparent;
+    color: var(--texto-claro);
+    border: 1px solid var(--azul-lyc);
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px; /* Bordes ligeramente cuadrados */
+    transition: all 0.3s ease;
+}
+
+.btn-cotiza:hover {
+    background: var(--azul-lyc);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(74, 118, 168, 0.4); /* Resplandor azul */
+}
+
+.logo img {
+    max-height: 140px;
+    width: auto; /* Mantiene la proporción original de la imagen */
+    display: block;
+}
+
+/* Sección de bienvenida ajustada */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    font-weight: 300; 
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #8c9baf;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- CUADRÍCULA DE SERVICIOS  --- */
+.servicios-container {
+    max-width: 1200px;
+    margin: -20px auto 40px auto; 
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.servicio-card {
+    background: rgba(255, 255, 255, 0.02); 
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 8px; /* Bordes menos redondeados  */
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease, border 0.3s ease;
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px); 
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--gris-lyc); 
+}
+
+.servicio-card h3 {
+    color: var(--azul-lyc);
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.servicio-card p {
+    line-height: 1.6;
+    color: #a0aec0;
+    font-size: 0.95em;
+}
+
+/* --- SECCIÓN NOSOTROS --- */
+.nosotros-section {
+    max-width: 1200px;
+    margin: 80px auto; /* Espacio arriba y abajo  */
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que se adapte a celulares */
+    gap: 50px;
+    align-items: center;
+}
+
+.nosotros-texto {
+    flex: 1; /* Toma la mitad del espacio disponible */
+    min-width: 300px;
+}
+
+.nosotros-texto h2 {
+    font-size: 2.5em;
+    font-weight: 300;
+    color: var(--texto-claro);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nosotros-texto h2 span {
+    color: var(--azul-lyc);
+    font-weight: 600;
+}
+
+.nosotros-texto p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #a0aec0;
+    margin-bottom: 20px;
+}
+
+.nosotros-stats {
+    flex: 1;
+    min-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas de estadísticas */
+    gap: 20px;
+}
+
+/* Cajitas de estadísticas con efecto cristal */
+.stat-box {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(108, 128, 145, 0.2); /* Borde usando gris */
+    border-radius: 8px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: scale(1.05); /* Pequeño zoom al pasar el mouse */
+    border-color: var(--azul-lyc);
+}
+
+.stat-box h4 {
+    font-size: 2em;
+    color: var(--texto-claro);
+    margin: 0 0 10px 0;
+    font-weight: 400;
+}
+
+.stat-box p {
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gris-lyc);
+    margin: 0;
+}
+
+/* --- SECCIÓN CONTACTO --- */
+.contacto-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.contacto-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contacto-info h2 {
+    font-size: 2.5em;
+    font-weight: 300;
+    color: var(--texto-claro);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contacto-info p {
+    color: #a0aec0;
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.datos-lista {
+    list-style: none;
+    padding: 0;
+}
+
+.datos-lista li {
+    margin-bottom: 15px;
+    color: var(--texto-claro);
+    font-size: 1.05em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.datos-lista li strong {
+    color: var(--azul-lyc);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+}
+
+/* Formulario con efecto cristal */
+.contacto-form-container {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--gris-lyc);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.2); /* Fondo muy oscuro para el input */
+    border: 1px solid rgba(108, 128, 145, 0.3);
+    border-radius: 4px;
+    color: var(--texto-claro);
+    font-family: inherit;
+    font-size: 1em;
+    box-sizing: border-box; /* Asegura que el padding no rompa el ancho */
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--azul-lyc);
+    box-shadow: 0 0 10px rgba(74, 118, 168, 0.2);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+textarea.form-control {
+    resize: vertical; /* Permite cambiar el tamaño solo hacia abajo */
+    min-height: 120px;
+}
+
+.btn-enviar {
+    background: var(--azul-lyc);
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-enviar:hover {
+    background: #3a5d85; /* Un azul un poco más oscuro */
+    box-shadow: 0 0 15px rgba(74, 118, 168, 0.5);
+}
+
+
+/* --- SECCIÓN CASOS DE ÉXITO --- */
+.exito-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 40px 20px;
+}
+
+.exito-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.exito-header h2 {
+    font-size: 2.5em;
+    font-weight: 300;
+    color: var(--texto-claro);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 15px 0;
+}
+
+.exito-header h2 span {
+    color: var(--azul-lyc);
+    font-weight: 600;
+}
+
+.exito-header p {
+    color: #a0aec0;
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.exito-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+/* Tarjeta de Proyecto */
+.proyecto-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que la imagen no se salga de los bordes redondeados */
+    transition: transform 0.3s ease, border 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.proyecto-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--azul-lyc);
+}
+
+/* Espacio para la foto del proyecto */
+.paso-numero {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #1a222b 0%, var(--fondo-oscuro) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gris-lyc);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.proyecto-contenido {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.proyecto-contenido h3 {
+    color: var(--texto-claro);
+    font-size: 1.3em;
+    margin: 0 0 10px 0;
+    font-weight: 500;
+}
+
+.proyecto-contenido p {
+    color: #8c9baf;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Etiquetas de servicios utilizados */
+.proyecto-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background: rgba(74, 118, 168, 0.1); /* Fondo azul muy transparente */
+    color: var(--azul-lyc);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(74, 118, 168, 0.3);
+}
