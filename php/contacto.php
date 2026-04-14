@@ -122,10 +122,13 @@ try {
     echo 'El mensaje se ha enviado';
 
 
-header("Location: ../index.html?success=1");
 } catch (Exception $c) {
     echo "El mensaje no se ha enviado. Mailer Error: {$mail2->ErrorInfo}";
 }
+
+
+header("Location: https://lycsystem.com/");
+
 
 
 
