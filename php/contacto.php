@@ -77,7 +77,7 @@ try {
                    '<strong>Email:</strong> ' . htmlspecialchars($email) . '<br>' .
                    '<strong>Mensaje:</strong><br>' . nl2br(htmlspecialchars($mensaje));
     $mail->send();
-    echo 'El mensaje se ha enviado';
+    echo 'El mensaje se ha enviado internamente';
 
 
 
@@ -119,7 +119,7 @@ try {
                      '<strong>Mensaje:</strong><br>' . nl2br(htmlspecialchars($mensaje)) . '<br><br>' .
                      'Gracias por contactarnos,<br>El equipo de LYC System';
     $mail2->send();
-    echo 'El mensaje se ha enviado';
+    echo 'El mensaje se ha enviado al cliente';
 
 
 } catch (Exception $c) {
