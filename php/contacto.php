@@ -96,7 +96,7 @@ $mail2 = new PHPMailer(true);
 
 try {
     // Configuracion SMTP
-    $mail2->SMTPDebug = SMTP::DEBUG_SERVER;                         // Mostrar salida (Desactivar en producción)
+    //$mail2->SMTPDebug = SMTP::DEBUG_SERVER;                         // Mostrar salida (Desactivar en producción)
     $mail2->isSMTP();                                               // Activar envio SMTP
     $mail2->Host  = 'mail.lycsystem.com';                     // Servidor SMTP
     $mail2->SMTPAuth  = true;                                       // Identificacion SMTP
