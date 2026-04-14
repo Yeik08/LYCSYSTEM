@@ -1,3 +1,10 @@
+ html {
+    /* Desplaza el punto de anclaje hacia abajo para que el header no tape los títulos */
+    scroll-padding-top: 115px; 
+    
+    /* Efecto extra de UX: Hace que el salto no sea de golpe, sino un deslizamiento suave */
+    scroll-behavior: smooth; 
+}
  /* Variables de color */
 :root {
     --azul-lyc: #4a76a8; 
@@ -81,7 +88,7 @@ header {
 }
 
 .logo img {
-    max-height: 140px;
+    max-height: 122px;
     width: auto; /* Mantiene la proporción original de la imagen */
     display: block;
 }
@@ -458,4 +465,207 @@ textarea.form-control {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     border: 1px solid rgba(74, 118, 168, 0.3);
+}
+
+/* --- SECCIÓN FOOTER --- */
+/* --- FOOTER --- */
+.footer-lyc {
+    background: #05080a; /* Un tono ligeramente más oscuro que tu fondo general */
+    padding: 50px 20px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 60px;
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-logo h3 {
+    color: var(--texto-claro);
+    margin: 0 0 5px 0;
+    font-size: 1.8em;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.footer-logo h3 span {
+    color: var(--azul-lyc);
+    font-weight: 600;
+}
+
+.footer-logo p {
+    color: var(--gris-lyc);
+    margin: 0;
+    font-size: 0.95em;
+}
+
+.footer-sociales {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Diseño de los botones de redes como "Píldoras" */
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Tamaño fijo para que todos se vean iguales */
+    height: 40px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icon img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Evita que el logo se deforme */
+    filter: brightness(0.8); /* Un poco opacos por defecto */
+}
+
+.social-icon:hover {
+    transform: translateY(-5px); 
+}
+
+.social-icon:hover img {
+    filter: brightness(1); /* Brillan al pasar el mouse */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #556b82;
+    font-size: 0.85em;
+}
+
+
+/* --- BOTONES DE MENÚ PARA MÓVIL --- */
+
+.btn-menu, .btn-cerrar {
+    display: none;
+    background: transparent;
+    color: var(--texto-claro);
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn-menu:hover, .btn-cerrar:hover {
+    color: var(--azul-lyc);
+}
+
+.btn-cotiza-movil {
+    display: none; /* Oculto en PC */
+}
+
+/* --- Media Queries --- */
+
+
+/* Pantallas medianas (Tablets horizontales y Laptops pequeñas) */
+@media (max-width: 992px) {
+    .nosotros-section, .contacto-section, .exito-section {
+        margin: 50px auto;
+        padding: 30px 20px;
+    }
+    
+    .hero h1 {
+        font-size: 2.8em;
+    }
+}
+
+/* Pantallas pequeñas (Tablets verticales y Celulares grandes) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row; /* Mantiene logo y hamburguesa en la misma línea */
+        justify-content: space-between;
+    }
+
+    .btn-cotiza-pc {
+        display: none; /* Ocultamos el botón del header en móvil */
+    }
+
+    .btn-cotiza-movil {
+        display: inline-block; /* Lo mostramos dentro del modal */
+        margin-top: 20px;
+    }
+
+    .btn-menu {
+        display: block; /* Mostramos la hamburguesa */
+    }
+
+    /* Transformación del menú a Modal Lateral (Side Drawer) */
+    .menu-principal {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Escondido fuera de la pantalla a la derecha */
+        width: 100%; /* Ocupa el 100% del ancho del celular */
+        max-width: 350px;
+        height: 100vh; /* Altura completa */
+        background: rgba(10, 14, 18, 0.98); /* Fondo oscuro casi sólido */
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        flex-direction: column; /* Enlaces en lista vertical */
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.4s ease-in-out; /* Animación suave al entrar */
+        box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+        z-index: 2000; /* Asegura que esté por encima de todo */
+    }
+
+    /* Esta clase se la inyectaremos con JavaScript para abrir el menú */
+    .menu-principal.activo {
+        right: 0; 
+    }
+
+    .btn-cerrar {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 25px;
+    }
+
+    .menu-principal a {
+        font-size: 1.5em; /* Letras más grandes y fáciles de tocar */
+    }
+    .footer-contenido {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .footer-sociales {
+        justify-content: center; /* Centra los iconos en el cel */
+        width: 100%;
+    }
+    .social-icon {
+        width: 45px; /* Un poquito más grandes en móvil para el pulgar */
+        height: 45px;
+    }
+
+}
+
+/* Pantallas muy pequeñas (Celulares estándar) */
+@media (max-width: 480px) {
+    /* Las estadísticas pasan de 2 columnas a 1 para no aplastar el texto */
+    .nosotros-stats {
+        grid-template-columns: 1fr; 
+    }
+
+    .hero h1 {
+        font-size: 1.8em;
+    }
+
+    .stat-box h4 {
+        font-size: 1.6em;
+    }
 }
